@@ -5,7 +5,7 @@ from surveyapp.forms import RegistrationForm, LoginForm, CreateForm, AskForm, Re
 from flask_login import login_user, current_user, logout_user, login_required
 import datetime
 
-
+#all routes with temporary functions for commit to database
 @app.route("/")
 @app.route('/home')
 def home():

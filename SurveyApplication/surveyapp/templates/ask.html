@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Ask a question</legend>
+                <div class="form-group">
+                    {{ form.surveyTitle.label(class="form-control-label") }}
+
+                    {% if form.surveyTitle.errors %}
+                        {{ form.surveyTitle(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.surveyTitle.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.surveyTitle(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.surveyQuestion.label(class="form-control-label") }}
+                    {% if form.surveyQuestion.errors %}
+                        {{ form.surveyQuestion(class="form-control form-control-lg is-invalid", rows="3") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.surveyQuestion.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.surveyQuestion(class="form-control form-control-lg", rows="3") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.endDate.label(class="form-control-label") }}
+                    {% if form.endDate.errors %}
+                        {{ form.endDate(class="form-control form-control-lg is-invalid", type="date") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.endDate.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.endDate(class="form-control form-control-lg", type="date") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.participantId.label(class="form-control-label") }}
+                    {% if form.participantId.errors %}
+                        {{ form.participantId(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.participantId.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.participantId(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}

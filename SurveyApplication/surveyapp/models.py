@@ -6,7 +6,7 @@ from flask_login import UserMixin
 def load_user(user_id):
     return HashTable.query.get(int(user_id))
 
-
+#module where the tablles in the database are created
 class Employees(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     depId = db.Column(db.String(5),  nullable=False)
